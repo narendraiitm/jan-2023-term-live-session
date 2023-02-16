@@ -22,9 +22,11 @@ new Vue({
   <Header />
   <div> No of tasks: {{noOfTasks}} </div>
   <ul>
-    
+    <Task />
     <li v-for='(task, index) in tasks'> 
-        <Task :childTask='task' name='Narendra' />
+        <span :class='{complete: task.complete}'>{{task.name}}</span>
+        <button @click='deleteTask(index)'> Delete</button> 
+        <button @click='markAsComplete(index)'> Mark As complete</button>
     </li>
   </ul>
   <input placeholder='task' v-model='currentTask' />
@@ -40,7 +42,6 @@ new Vue({
   },
   components: {
     Footer,
-    Task,
   },
   methods: {
     addTask() {

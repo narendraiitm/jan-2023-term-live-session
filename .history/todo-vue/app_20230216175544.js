@@ -24,7 +24,7 @@ new Vue({
   <ul>
     
     <li v-for='(task, index) in tasks'> 
-        <Task :childTask='task' name='Narendra' />
+        <Task :childTask="task" name='Narendra' />
     </li>
   </ul>
   <input placeholder='task' v-model='currentTask' />

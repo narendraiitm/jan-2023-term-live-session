@@ -1,5 +1,6 @@
-import Footer from './Components/Footer.js'
-import Task from './Components/Task.js'
+const Footer = {
+  template: `<div> This is footer </div>`,
+}
 
 Vue.component('Header', {
   template: `<div> {{name}}
@@ -11,7 +12,7 @@ Vue.component('Header', {
     }
   },
   components: {
-    Footer: Footer,
+    Footer,
   },
 })
 
@@ -22,9 +23,10 @@ new Vue({
   <Header />
   <div> No of tasks: {{noOfTasks}} </div>
   <ul>
-    
     <li v-for='(task, index) in tasks'> 
-        <Task :childTask='task' name='Narendra' />
+        <span :class='{complete: task.complete}'>{{task.name}}</span>
+        <button @click='deleteTask(index)'> Delete</button> 
+        <button @click='markAsComplete(index)'> Mark As complete</button>
     </li>
   </ul>
   <input placeholder='task' v-model='currentTask' />
@@ -40,7 +42,6 @@ new Vue({
   },
   components: {
     Footer,
-    Task,
   },
   methods: {
     addTask() {
