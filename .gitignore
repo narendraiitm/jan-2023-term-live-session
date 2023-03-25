@@ -1,1 +1,4 @@
 .history
+venv/
+__pycache__/
+celery-demo/venv/

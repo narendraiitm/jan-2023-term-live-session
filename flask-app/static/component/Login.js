@@ -28,7 +28,11 @@ export default {
           }
         })
         .then((data) => {
-          console.log(data.response.user.authentication_token)
+          localStorage.setItem(
+            'auth-token',
+            data.response.user.authentication_token
+          )
+          this.$router.push('/')
         })
     },
   },
